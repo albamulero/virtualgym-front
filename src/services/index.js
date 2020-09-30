@@ -3,7 +3,7 @@ let baseURL
 
 process.env.NODE_ENV === "production"
   ? (baseURL = "/api")
-  : (baseURL = "http://192.168.1.200:3000/api")
+  : (baseURL = "http://localhost:3000/api")
 
 const service = axios.create({ withCredentials: true, baseURL })
 
@@ -22,10 +22,19 @@ export const logOut = async () => {
 export const getProfile = async () => {
   return await service.get("/profile")
 }
-export const facebookLogin = async () => {
-  return await service.get("/auth/facebook")
-}
+
 //Alta de ejercicio
 export const altaejercicio = async ejercicio => {
   return await service.post("/ejercicio/alta", ejercicio )
 }
+
+//Listar ejercicios
+export const listarejercicio = async ejercicio => {
+  return await service.get("/ejercicio/listado", ejercicio )
+}
+
+// Buscar ejercicio - pasamos el ID del ejercicio ---- devuelve un Json con el ejercicio buscado
+export const buscarejercicio = async (id) =>{
+  return await service.get(`/ejercicio/buscar/${id}` )
+}
+

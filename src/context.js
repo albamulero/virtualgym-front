@@ -18,6 +18,8 @@ export default function Provider({ children }) {
     profile()
   }, [])
 
+  
+
   return (
     <MyContext.Provider
       value={{

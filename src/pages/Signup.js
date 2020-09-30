@@ -1,5 +1,5 @@
 import React from "react"
-import { Form, Input, Button, Divider, Row, Col } from "antd"
+import { Form, Input, Button, Divider } from "antd"
 import { signup } from "../services"
 
 let baseURL
@@ -8,11 +8,15 @@ const Signup = ({ history }) => {
   const [form] = Form.useForm()
 
   async function signupProcess(values) {
-    await signup(values)
+    console.log(values)
+    signup(values) 
+    .then(data => console.log(data))
+    .catch(error => console.log(error))
     history.push("/login")
   }
   return (
-    <div>
+    <div style={{margin:15}}>
+      <Divider orientation='right'>REGISTRO 📝</Divider>
       <Form layout='vertical' name='basic' form={form} onFinish={signupProcess}>
         <Form.Item
           label='Nombre'
@@ -48,26 +52,17 @@ const Signup = ({ history }) => {
         </Form.Item>
 
         <Form.Item>
-          <Button type='primary' htmlType='submit'>
+          <Button type='primary' htmlType='submit' block>
             Registrate
           </Button>
         </Form.Item>
       </Form>
       
       <Divider>Or</Divider>
-      <br />
-      <Row gutter={16}>
-        <Col span={12}>
-          <Button type='primary' block>
-            <a href={`${baseURL}/auth/facebook`}>Entrar con Facebook</a>
-          </Button>
-        </Col>
-        <Col span={12}>
-          <Button type='primary' block>
-            <a href={`${baseURL}/auth/google`}>Entrar con Google</a>
-          </Button>
-        </Col>
-      </Row>
+        <Button type='primary' block>
+          <a href={`${baseURL}/auth/google`}>Entrar con Google</a>
+        </Button>
+       
     </div>
   )
 }

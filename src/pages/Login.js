@@ -1,15 +1,15 @@
 import React, { useContext } from "react"
-import { Form, Input, Button } from "antd"
+import { Form, Input, Button, Divider } from "antd"
 import { login } from "../services"
 import { MyContext } from "../context"
 
 let baseURL
 
 process.env.NODE_ENV === "production"
-  ? (baseURL = "https://murmuring-reaches-95521.herokuapp.com")
-  : (baseURL = "http://localhost:3000")
+  ? (baseURL = "https://murmuring-reaches-95521.herokuapp.com") //Cambiar por mi heruku
+  : (baseURL = "http://192.168.1.200:3000/api")
 
-const Login = ({ history }) => {
+const Login = () => {
   const [form] = Form.useForm()
   const { setCtxUser } = useContext(MyContext)
 
@@ -23,7 +23,8 @@ const Login = ({ history }) => {
     setCtxUser(user)
   }
   return (
-    <div>
+    <div style={{margin:15}}>
+      <Divider orientation='right'>ENTRAR 🚪</Divider>
       <Form layout='vertical' name='basic' form={form} onFinish={loginProcess}>
         <Form.Item
           label='Email'
@@ -42,7 +43,7 @@ const Login = ({ history }) => {
         </Form.Item>
 
         <Form.Item>
-          <Button type='primary' htmlType='submit'>
+          <Button type='primary' htmlType='submit' block>
             Entrar
           </Button>
         </Form.Item>

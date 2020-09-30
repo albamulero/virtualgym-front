@@ -4,7 +4,7 @@ import { UserOutlined } from '@ant-design/icons';
 
 function NotFound() {
   return (
-    <div>
+    <div style={{margin:15}}>
       <Avatar size={80} icon={<UserOutlined />} style={{marginLeft: 20, marginTop:30}}/>
       <h2 style={{marginLeft: 20, marginTop:30}}>Nombre: </h2>
       <h2 style={{marginLeft: 20 }}>Apellidos: </h2>

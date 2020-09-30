@@ -34,7 +34,6 @@ function LayoutApp({ children }) {
   return (
     <Layout style={{ height: "100vh" }}>
       <Sider trigger={null} collapsible collapsed={collapsed}>
-        <div className='logo' />
         <Menu theme='dark' mode='inline'>
           <Menu.Item key='1' icon={<HomeOutlined />} >
             <Link to='/'>Home</Link>
@@ -71,21 +70,24 @@ function LayoutApp({ children }) {
           <Menu.Item key='21' icon={<UserOutlined />}>
             <Link to='/perfil'>Perfil </Link>
           </Menu.Item>
-
+          <Menu.Item key='22' icon={<UserOutlined />}>
+              <Link to='/administrador'>Administrador</Link>
+          </Menu.Item>
+        
           {!user && (
             <>
-              <Menu.Item key='22' icon={<FormOutlined />}>
+              <Menu.Item key='23' icon={<FormOutlined />}>
                 <Link to='/signup'>Signup</Link>
               </Menu.Item>
-              <Menu.Item key='23' icon={<LoginOutlined />}>
-                <Link to='/login2'>Login</Link>
+              <Menu.Item key='24' icon={<LoginOutlined />}>
+                <Link to='/login'>Login</Link>
               </Menu.Item>
             </>
           )}
           
           {user && (
             <Menu.Item
-              key='24'
+              key='25'
               icon={<LogoutOutlined />}
               onClick={logoutProcess}
             >
@@ -93,16 +95,12 @@ function LayoutApp({ children }) {
             </Menu.Item>
           )}
           {user && (
-            <Menu.Item key='25' icon={<UserOutlined />}>
+            <Menu.Item key='26' icon={<UserOutlined />}>
               <Link to='/profile'>{user.name}</Link>
             </Menu.Item>
           )}
           
-          <Menu.Item key='26' icon={<UserOutlined />}>
-              <Link to='/administrador'>Administrador</Link>
-          </Menu.Item>
-
-          <Header style={{ padding: "0 2rem", backgroundColor: "white" }}>
+          <Header style={{ padding: "0 2rem", color: "white" }}>
           {React.createElement(
             collapsed ? RightOutlined  : LeftOutlined ,
             {

@@ -1,10 +1,11 @@
 import React from "react"
 import { BrowserRouter, Switch, Route } from "react-router-dom"
 import LayoutApp from "./components/LayoutApp"
-import { Home, Completo, Perfil, Signup, Login2, NotFound, Administrador,
+import { Home, Completo, Perfil, Signup, Login, NotFound, Administrador,
   BicepsSuperior, Triceps, Abdominales, Pecho,
   Cuadriceps, Gemelos, BicepsInferior, Gluteos,
-  Pesas, Banco, Barra, Ligas, Calentamiento, Estiramientos
+  Pesas, Banco, Barra, Ligas, Calentamiento, Estiramientos,
+  Modificar
 } from "./pages"
 
 const Router = () => (
@@ -17,7 +18,7 @@ const Router = () => (
         <Route exact path='/estiramientos' component={Estiramientos} />
         <Route exact path='/perfil' component={Perfil} />
         <Route exact path='/signup' component={Signup} />
-        <Route exact path='/login2' component={Login2} />
+        <Route exact path='/login' component={Login} />
         <Route exact path='/administrador' component={Administrador} />
 
         <Route exact path='/bicepsSuperior' component={BicepsSuperior} />
@@ -34,6 +35,8 @@ const Router = () => (
         <Route exact path='/banco' component={Banco} />
         <Route exact path='/barra' component={Barra} />
         <Route exact path='/ligas' component={Ligas} />
+
+        <Route exact path='/modificar/:id' component={Modificar} />
 
         <Route component={NotFound} />
 
