@@ -14,7 +14,6 @@ const Login = () => {
   const { setCtxUser } = useContext(MyContext)
 
   async function loginProcess(values) {
-    ver = true
     const {
       data: { user }
     } = await login(values)

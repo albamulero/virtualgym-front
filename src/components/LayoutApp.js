@@ -39,8 +39,8 @@ function LayoutApp({ children }) {
           <Menu.Item key='1' icon={<HomeOutlined />} >
             <Link to='/'>Home</Link>
           </Menu.Item>
-          {ver && (
-            <>
+            {ver && (
+              <> 
               <Menu.Item key='2' icon={<RiseOutlined />}>
                 <Link to='/calentamiento'>Calentamiento</Link>
               </Menu.Item>
@@ -48,7 +48,7 @@ function LayoutApp({ children }) {
               <Menu.Item key='3' icon={<RiseOutlined />}>
                 <Link to='/completo'>Cuerpo completo</Link>
               </Menu.Item>
-            
+           
               <SubMenu key="4" title="Sin equipamiento" icon={<RiseOutlined />}>
                 <SubMenu key='5' title="Parte Inferior">
                   <Menu.Item key="6"><Link to='/cuadriceps'>Cuadriceps</Link></Menu.Item>
