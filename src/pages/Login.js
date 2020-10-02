@@ -6,7 +6,7 @@ import { MyContext } from "../context"
 let baseURL
 
 process.env.NODE_ENV === "production"
-  ? (baseURL = "https://murmuring-reaches-95521.herokuapp.com") //Cambiar por mi heruku
+  ? (baseURL = "https://virtualgymreact.herokuapp.com/api")
   : (baseURL = "http://192.168.1.200:3000/api")
 
 const Login = () => {
@@ -14,6 +14,7 @@ const Login = () => {
   const { setCtxUser } = useContext(MyContext)
 
   async function loginProcess(values) {
+    ver = true
     const {
       data: { user }
     } = await login(values)

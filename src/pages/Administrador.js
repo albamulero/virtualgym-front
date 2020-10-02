@@ -1,6 +1,6 @@
 import React, {useState, useEffect} from 'react'
-import { Tabs, Form, Input, Button, Card, Divider } from 'antd';
-import { altaejercicio, buscarejercicio, listarejercicio } from '../services'
+import { Tabs, Form, Input, Button, Card, Divider, Select } from 'antd';
+import { altaejercicio, buscarejercicio, listarejercicio, borrarejercicio } from '../services'
 import { Link } from 'react-router-dom';
 import TextArea from 'antd/lib/input/TextArea';
 
@@ -13,15 +13,22 @@ const Administrador = ()  => {
     const [listejercicios, setlistejercicios] = useState([])
 
     async function altaejercicioProcess(values) {
-        console.log(values)
         altaejercicio(values)
-        .then(data => console.log(data).next())
-        .catch(error => console.log(error))
+        .then(data => console.log(data))
+        .catch(error => console.log(error.response))
     }
 
     // funcion para buscar y delvolver un ejercicio
     async function buscarejercicioProcess(values){
         buscarejercicio(values)
+        .then(data => console.log(data))
+        .catch(error => console.log(error))
+    }
+
+    //funcion para borrar un ejercicio
+    async function eliminarejercicioProcess(values){
+        console.log(values)
+        borrarejercicio(values)
         .then(data => console.log(data))
         .catch(error => console.log(error))
     }
@@ -45,11 +52,20 @@ const Administrador = ()  => {
                         <Form.Item label="Titulo" name='titulo'>
                             <Input />
                         </Form.Item>
+                        <Form.Item label="Tren" name='tren'>
+                            <Select>
+                                <Select.Option name='tren' value='superior'>Superior</Select.Option>
+                                <Select.Option neme='tren' value='inferior'>Inferior</Select.Option>
+                            </Select>
+                        </Form.Item>
+                        <Form.Item label="Musculo" name='musculo'>
+                            <Input />
+                        </Form.Item>
                         <Form.Item label="Descripcion" name='explicacion'>
                             <TextArea />
                         </Form.Item>
                         <Form.Item label="Link" name='enlacevideo'>
-                            <Input />
+                            <Link />
                         </Form.Item>
                         <Form.Item>
                             <Button type="primary" htmlType="submit" block>
@@ -76,7 +92,7 @@ const Administrador = ()  => {
                     <Card>
                         <li className="travelcompany-input" key={i}>
                             <span className="input-label">key: {i} Codigo: {lista.codigo} Explicacion: {lista.explicacion}</span>
-                            <Button onClick={e => buscarejercicioProcess(lista._id)} block style={{marginTop:20}}>Eliminar</Button>
+                            <Button onClick={e => eliminarejercicioProcess(lista._id)} block style={{marginTop:20}}>Eliminar</Button>
                         </li>   
                     </Card> 
                 ))}

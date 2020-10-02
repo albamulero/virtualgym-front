@@ -4,6 +4,10 @@ import { signup } from "../services"
 
 let baseURL
 
+process.env.NODE_ENV === "production"
+  ? (baseURL = "https://virtualgymreact.herokuapp.com/api")
+  : (baseURL = "http://localhost:3000")
+
 const Signup = ({ history }) => {
   const [form] = Form.useForm()
 
@@ -58,7 +62,7 @@ const Signup = ({ history }) => {
         </Form.Item>
       </Form>
       
-      <Divider>Or</Divider>
+      <Divider>O</Divider>
         <Button type='primary' block>
           <a href={`${baseURL}/auth/google`}>Entrar con Google</a>
         </Button>

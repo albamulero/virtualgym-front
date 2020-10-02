@@ -2,6 +2,7 @@ import React, {useState, useEffect} from 'react'
 import { Form, Input, Button, Divider } from 'antd';
 import { buscarejercicio } from '../services'
 import TextArea from 'antd/lib/input/TextArea';
+import { Link } from 'react-router-dom';
 
 
 const  ModificarEjercicio = (props) => {
@@ -37,9 +38,14 @@ const  ModificarEjercicio = (props) => {
                     <Form.Item label="Link" name='enlacevideo'>
                         <Input defaultValue={modificarEjercicios.ejercicio.enlacevideo}/>
                     </Form.Item>
-                    <Form.Item>
+                   <Form.Item>
                         <Button type="primary" htmlType="submit" block style={{width:100}}>
-                            Añadir
+                            Modificar
+                        </Button>
+                    </Form.Item> 
+                    <Form.Item>
+                        <Button type="primary" block style={{width:100}}>
+                            <Link to="/administrador">Cancelar</Link>
                         </Button>
                     </Form.Item>
                 </Form> 

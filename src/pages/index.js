@@ -5,7 +5,10 @@ export { default as Estiramientos } from "./Estiramientos"
 export { default as Perfil } from "./Perfil"
 export { default as Signup } from "./Signup"
 export { default as Login } from "./Login"
+
 export { default as Administrador } from "./Administrador"
+export { default as Pago } from "./Pago"
+
 export { default as NotFound } from "./NotFound"
 
 export { default as BicepsSuperior } from "./BicepsSuperior"

@@ -5,7 +5,7 @@ import { Home, Completo, Perfil, Signup, Login, NotFound, Administrador,
   BicepsSuperior, Triceps, Abdominales, Pecho,
   Cuadriceps, Gemelos, BicepsInferior, Gluteos,
   Pesas, Banco, Barra, Ligas, Calentamiento, Estiramientos,
-  Modificar
+  Modificar, Pago
 } from "./pages"
 
 const Router = () => (
@@ -19,7 +19,9 @@ const Router = () => (
         <Route exact path='/perfil' component={Perfil} />
         <Route exact path='/signup' component={Signup} />
         <Route exact path='/login' component={Login} />
+        
         <Route exact path='/administrador' component={Administrador} />
+        <Route exact path='/pago' component={Pago} />
 
         <Route exact path='/bicepsSuperior' component={BicepsSuperior} />
         <Route exact path='/triceps' component={Triceps} />

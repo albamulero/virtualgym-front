@@ -1,5 +1,6 @@
 import React from "react"
 import { Image, Carousel, Button } from "antd"
+import { Link } from "react-router-dom"
 
 function Home() {
 
@@ -25,7 +26,7 @@ function Home() {
           </div>
         </Carousel>
         <div style={{margin:20}}>
-          <Button block type='primary' htmlType='submit'>Obten tu Coach</Button>
+          <Button block type='primary' htmlType='submit'><Link to="./Pago" style={{color:'white'}}>Obten tu Coach</Link></Button>
         </div> 
       </div>
         <div style={{margin:10}}>
@@ -33,7 +34,7 @@ function Home() {
           <p style={{textAlign:'center'}}>Un plan de entrenamiento completamente adaptado a tus objetivo. Pierde peso, muscúlate o mejora tu forma fisica general.</p>
         </div>  
         <div style={{margin:20}}>
-          <Button block type='primary' htmlType='submit'>Registrate gratis</Button>
+          <Button block type='primary' htmlType='submit'><Link to="./Signup" style={{color:'white'}}>Registrate gratis</Link></Button>
         </div>
         
         <div style={{backgroundColor:'rgb(4,21,39)', color:'white', height:55}}>
